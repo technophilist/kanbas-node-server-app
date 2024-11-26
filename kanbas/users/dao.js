@@ -7,7 +7,7 @@ const createUser = (user) => {
     return newUser
 }
 const findAllUsers = () => users
-const findUserById = (userId) => users.find(user => user._id === Number(userId))
+const findUserById = (userId) => users.find((user) => user._id === userId)
 const findUserByUsername = (username) => users.find((user) => user.username === username)
 const findUserByCredentials = (username, password) => users.find((user) => user.username === username && user.password === password)
 const updateUser = (userId, user) => (users = users.map((u) => (u._id === userId ? user : u)))
