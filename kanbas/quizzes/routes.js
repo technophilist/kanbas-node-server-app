@@ -17,6 +17,12 @@ function QuizzesRoutes(app) {
         res.json(quizzes)
     })
 
+    app.get("/api/quizzes/:quizId", (req, res) => {
+        const { quizId } = req.params
+        const quiz = quizzesDao.getQuizById(quizId)
+        res.json(quiz)
+    })
+
     app.patch("/api/quizzes/:quizId", (req, res) => {
         const { quizId } = req.params
         const { isPublished } = req.body
