@@ -6,7 +6,7 @@ function QuizzesRoutes(app) {
         const quizzes = quizzesDao
             .getQuizSummariesForCourse(courseId)
             .map(quiz => ({
-                id: quiz._id,
+                id: quiz.id,
                 title: quiz.title,
                 availableEpochTimestamp: quiz.availableFromTimestampMillis,
                 dueEpochTimestamp: quiz.dueDateTimestampMillis,
@@ -17,6 +17,18 @@ function QuizzesRoutes(app) {
         res.json(quizzes)
     })
 
+    app.patch("/api/quizzes/:quizId", (req, res) => {
+        const { quizId } = req.params
+        const { isPublished } = req.body
+        quizzesDao.setPublishStatusForQuiz(quizId, isPublished)
+        res.json(200)
+    })
+
+    app.delete("/api/quizzes/:quizId", (req, res) => {
+        const { quizId } = req.params
+        quizzesDao.deleteQuiz(quizId)
+        res.json(200)
+    })
 }
 
 export default QuizzesRoutes 
