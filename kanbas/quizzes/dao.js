@@ -4,6 +4,10 @@ const getQuizSummariesForCourse = (courseId) => {
     return database.quizzes.filter(quiz => quiz.courseId === courseId)
 }
 
+const getQuizById = (quizId) => {
+    return database.quizzes.find(q => q.id === quizId)
+}
+
 const setPublishStatusForQuiz = (quizId, isPublished) => {
     console.log("Setting publish status for quiz", quizId, isPublished)
     const quiz = database.quizzes.find(q => q.id === quizId)
@@ -14,4 +18,4 @@ const deleteQuiz = (quizId) => {
     database.quizzes = database.quizzes.filter(q => q.id !== quizId)
 }
 
-export default { getQuizSummariesForCourse, setPublishStatusForQuiz, deleteQuiz }
+export default { getQuizSummariesForCourse, getQuizById, setPublishStatusForQuiz, deleteQuiz }
