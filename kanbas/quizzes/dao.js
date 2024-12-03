@@ -18,4 +18,8 @@ const deleteQuiz = (quizId) => {
     database.quizzes = database.quizzes.filter(q => q.id !== quizId)
 }
 
-export default { getQuizSummariesForCourse, getQuizById, setPublishStatusForQuiz, deleteQuiz }
+const updateQuiz = (updatedQuiz) => {
+    database.quizzes = database.quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q)
+}
+
+export default { getQuizSummariesForCourse, getQuizById, setPublishStatusForQuiz, deleteQuiz, updateQuiz }
