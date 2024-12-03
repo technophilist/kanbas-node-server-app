@@ -21,4 +21,8 @@ const updateQuiz = (updatedQuiz) => {
     database.quizzes = database.quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q)
 }
 
-export default { getQuizSummariesForCourse, getQuizById, setPublishStatusForQuiz, deleteQuiz, updateQuiz }
+const getQuestionsForQuiz = (quizId) => {
+    return database.quizzes.find(q => q.id === quizId).questions
+}
+
+export default { getQuizSummariesForCourse, getQuizById, setPublishStatusForQuiz, deleteQuiz, updateQuiz, getQuestionsForQuiz }
