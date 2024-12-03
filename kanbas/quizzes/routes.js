@@ -35,6 +35,13 @@ function QuizzesRoutes(app) {
         quizzesDao.deleteQuiz(quizId)
         res.json(200)
     })
+
+    app.put("/api/quizzes/:quizId", (req, res) => {
+        const updatedQuiz = req.body
+        console.log(updatedQuiz)
+        quizzesDao.updateQuiz(updatedQuiz)
+        res.json(200)
+    })
 }
 
 export default QuizzesRoutes 
