@@ -10,14 +10,10 @@ const quizzes = [
         availableFromTimestampMillis: "1718409600000", // April 15, 2024, 09:00:00
         availableUntilTimestampMillis: "1718469600000", // April 16, 2024, 00:00:00
         timeLimitInMinutes: 90,
-        shuffleAnswers: true,
         shouldShuffleAnswers: true,
         allowMultipleAttempts: false,
-        isMultipleAttempts: false,
-        oneQuestionAtATime: true,
         isOneQuestionAtATime: true,
         isWebcamRequired: false,
-        lockQuestionsAfterAnswering: true,
         shouldLockQuestionsAfterAnswering: true,
         showCorrectAnswersImmediately: false,
         description: "This midterm exam covers chapters 1-5 of the course material. Please ensure you have a stable internet connection before starting.",
