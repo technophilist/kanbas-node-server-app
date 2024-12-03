@@ -23,6 +23,12 @@ function QuizzesRoutes(app) {
         res.json(quiz)
     })
 
+    app.get("/api/quizzes/:quizId/questions", (req, res) => {
+        const { quizId } = req.params
+        const questions = quizzesDao.getQuestionsForQuiz(quizId)
+        res.json(questions)
+    })
+
     app.patch("/api/quizzes/:quizId", (req, res) => {
         const { quizId } = req.params
         const { isPublished } = req.body
@@ -41,6 +47,7 @@ function QuizzesRoutes(app) {
         quizzesDao.updateQuiz(updatedQuiz)
         res.json(200)
     })
+
 }
 
 export default QuizzesRoutes 
