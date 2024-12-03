@@ -29,6 +29,19 @@ function QuizzesRoutes(app) {
         res.json(questions)
     })
 
+    app.put("/api/quizzes/:quizId", (req, res) => {
+        const updatedQuiz = req.body
+        quizzesDao.updateQuiz(updatedQuiz)
+        res.json(200)
+    })
+
+    app.put("/api/quizzes/:quizId/questions/:questionId", (req, res) => {
+        const { quizId, questionId } = req.params
+        const updatedQuestion = req.body
+        quizzesDao.updateQuestion(quizId, questionId, updatedQuestion)
+        res.json(200)
+    })
+
     app.patch("/api/quizzes/:quizId", (req, res) => {
         const { quizId } = req.params
         const { isPublished } = req.body
@@ -41,13 +54,6 @@ function QuizzesRoutes(app) {
         quizzesDao.deleteQuiz(quizId)
         res.json(200)
     })
-
-    app.put("/api/quizzes/:quizId", (req, res) => {
-        const updatedQuiz = req.body
-        quizzesDao.updateQuiz(updatedQuiz)
-        res.json(200)
-    })
-
 }
 
 export default QuizzesRoutes 
