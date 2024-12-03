@@ -9,7 +9,6 @@ const getQuizById = (quizId) => {
 }
 
 const setPublishStatusForQuiz = (quizId, isPublished) => {
-    console.log("Setting publish status for quiz", quizId, isPublished)
     const quiz = database.quizzes.find(q => q.id === quizId)
     quiz.isPublished = isPublished
 }
