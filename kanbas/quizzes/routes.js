@@ -38,7 +38,6 @@ function QuizzesRoutes(app) {
 
     app.put("/api/quizzes/:quizId", (req, res) => {
         const updatedQuiz = req.body
-        console.log(updatedQuiz)
         quizzesDao.updateQuiz(updatedQuiz)
         res.json(200)
     })
