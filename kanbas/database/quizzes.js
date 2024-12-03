@@ -16,7 +16,6 @@ const quizzes = [
         isMultipleAttempts: false,
         oneQuestionAtATime: true,
         isOneQuestionAtATime: true,
-        webcamRequired: false,
         isWebcamRequired: false,
         lockQuestionsAfterAnswering: true,
         shouldLockQuestionsAfterAnswering: true,
