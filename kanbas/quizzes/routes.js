@@ -31,6 +31,19 @@ function QuizzesRoutes(app) {
         res.json(questions)
     })
 
+    app.post("/api/quizzes/attempts/new", (req, res) => {
+        const { quizId, uid, answers, score } = req.body
+        const quizAttempt = {
+            attemptId: `${Date.now()}`,
+            quizId,
+            uid,
+            score,
+            answers
+        }
+        quizzesDao.createQuizAttempt(quizAttempt)
+        res.json({ attemptId: quizAttempt.attemptId })
+    })
+
     // update a quiz
     app.put("/api/quizzes/:quizId", (req, res) => {
         const updatedQuiz = req.body
