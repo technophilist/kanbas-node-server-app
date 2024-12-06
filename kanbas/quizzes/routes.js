@@ -30,7 +30,14 @@ function QuizzesRoutes(app) {
         const questions = quizzesDao.getQuestionsForQuiz(quizId)
         res.json(questions)
     })
+    // get a quiz attempt by id
+    app.get("/api/quizzes/attempts/:attemptId", (req, res) => {
+        const { attemptId } = req.params
+        const quizAttempt = quizzesDao.getQuizAttemptById(attemptId)
+        res.json(quizAttempt)
+    })
 
+    // create a new quiz attempt
     app.post("/api/quizzes/attempts/new", (req, res) => {
         const { quizId, uid, answers, score } = req.body
         const quizAttempt = {
