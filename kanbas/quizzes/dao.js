@@ -39,6 +39,10 @@ const createQuizAttempt = (quizAttempt) => {
     database.quizAttempts.push(quizAttempt)
 }
 
+const getQuizAttemptById = (attemptId) => {
+    return database.quizAttempts.find(qa => qa.attemptId === attemptId)
+}
+
 export default {
     getQuizSummariesForCourse,
     getQuizById,
@@ -48,5 +52,6 @@ export default {
     getQuestionsForQuiz,
     updateQuestion,
     updateQuestionsOfQuiz,
-    createQuizAttempt
+    createQuizAttempt,
+    getQuizAttemptById
 }
