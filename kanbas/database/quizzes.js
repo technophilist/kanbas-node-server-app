@@ -12,6 +12,7 @@ const quizzes = [
         timeLimitInMinutes: 90,
         shouldShuffleAnswers: true,
         allowMultipleAttempts: false,
+        maxAttempts: 1,
         isOneQuestionAtATime: true,
         isWebcamRequired: false,
         shouldLockQuestionsAfterAnswering: true,
