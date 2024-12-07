@@ -5,7 +5,9 @@ const getQuizSummariesForCourse = (courseId) => {
 }
 
 const getQuizById = (quizId) => {
-    return database.quizzes.find(q => q.id === quizId)
+    const quiz = database.quizzes.find(q => q.id === quizId)
+    if (quiz) return quiz 
+    return null
 }
 
 const setPublishStatusForQuiz = (quizId, isPublished) => {
@@ -22,6 +24,7 @@ const updateQuiz = (updatedQuiz) => {
 }
 
 const getQuestionsForQuiz = (quizId) => {
+    console.log(`${JSON.stringify(database.quizzes.map(q => q.id))}, quizId:${quizId}`)
     return database.quizzes.find(q => q.id === quizId).questions
 }
 
