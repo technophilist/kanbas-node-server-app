@@ -37,6 +37,13 @@ function QuizzesRoutes(app) {
         res.json(quizAttempt)
     })
 
+    // get all quiz attempts for a user
+    app.get("/api/quizzes/attempts/:quizId/user/:userId", (req, res) => {
+        const { quizId, userId } = req.params
+        const quizAttempts = quizzesDao.getQuizAttemptsForUser(quizId, userId)
+        res.json(quizAttempts)
+    })
+
     // create a new quiz attempt
     app.post("/api/quizzes/attempts/new", (req, res) => {
         const { quizId, uid, answers, score } = req.body
@@ -86,6 +93,13 @@ function QuizzesRoutes(app) {
     app.delete("/api/quizzes/:quizId", (req, res) => {
         const { quizId } = req.params
         quizzesDao.deleteQuiz(quizId)
+        res.json(200)
+    })
+
+    // delete a quiz attempt
+    app.delete("/api/quizzes/attempts/:attemptId", (req, res) => {
+        const { attemptId } = req.params
+        quizzesDao.deleteQuizAttemptById(attemptId)
         res.json(200)
     })
 }
