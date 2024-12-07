@@ -65,6 +65,12 @@ function QuizzesRoutes(app) {
         res.json(200)
     })
 
+    app.get("/api/quizzes/:quizId/attempts/count/:userId", (req, res) => {
+        const { quizId, userId } = req.params
+        const attemptCount = quizzesDao.getQuizAttemptsCountForUser(quizId, userId)
+        res.json({ count: attemptCount })
+    })
+
     // update a question
     app.put("/api/quizzes/:quizId/questions/:questionId", (req, res) => {
         const { quizId, questionId } = req.params
