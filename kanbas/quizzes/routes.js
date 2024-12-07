@@ -44,6 +44,13 @@ function QuizzesRoutes(app) {
         res.json(quizAttempts)
     })
 
+    // create a new quiz
+    app.post("/api/quizzes/new", (req, res) => {
+        const newQuiz = req.body
+        quizzesDao.createNewQuiz({...newQuiz, questions: []})
+        res.sendStatus(200)
+    })
+
     // create a new quiz attempt
     app.post("/api/quizzes/attempts/new", (req, res) => {
         const { quizId, uid, answers, score } = req.body

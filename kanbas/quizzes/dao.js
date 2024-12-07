@@ -22,7 +22,6 @@ const updateQuiz = (updatedQuiz) => {
 }
 
 const getQuestionsForQuiz = (quizId) => {
-    console.log(`${JSON.stringify(database.quizzes)}, quizId:${quizId}`)
     return database.quizzes.find(q => q.id === quizId).questions
 }
 
