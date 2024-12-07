@@ -22,6 +22,7 @@ const updateQuiz = (updatedQuiz) => {
 }
 
 const getQuestionsForQuiz = (quizId) => {
+    console.log(`${JSON.stringify(database.quizzes)}, quizId:${quizId}`)
     return database.quizzes.find(q => q.id === quizId).questions
 }
 
@@ -55,6 +56,10 @@ const getQuizAttemptsCountForUser = (quizId, userId) => {
     return database.quizAttempts.filter(qa => qa.quizId === quizId && qa.uid === userId).length
 }
 
+const createNewQuiz = (quiz) => {
+    database.quizzes.push(quiz)
+}
+
 export default {
     getQuizSummariesForCourse,
     getQuizById,
@@ -68,5 +73,6 @@ export default {
     getQuizAttemptById,
     deleteQuizAttemptById,
     getQuizAttemptsForUser,
-    getQuizAttemptsCountForUser
+    getQuizAttemptsCountForUser,
+    createNewQuiz
 }
