@@ -51,6 +51,10 @@ const getQuizAttemptsForUser = (quizId, userId) => {
     return database.quizAttempts.filter(qa => qa.quizId === quizId && qa.uid === userId)
 }
 
+const getQuizAttemptsCountForUser = (quizId, userId) => {
+    return database.quizAttempts.filter(qa => qa.quizId === quizId && qa.uid === userId).length
+}
+
 export default {
     getQuizSummariesForCourse,
     getQuizById,
@@ -63,5 +67,6 @@ export default {
     createQuizAttempt,
     getQuizAttemptById,
     deleteQuizAttemptById,
-    getQuizAttemptsForUser
+    getQuizAttemptsForUser,
+    getQuizAttemptsCountForUser
 }
