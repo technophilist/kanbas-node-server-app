@@ -43,6 +43,14 @@ const getQuizAttemptById = (attemptId) => {
     return database.quizAttempts.find(qa => qa.attemptId === attemptId)
 }
 
+const deleteQuizAttemptById = (attemptId) => {
+    database.quizAttempts = database.quizAttempts.filter(qa => qa.attemptId !== attemptId)
+}
+
+const getQuizAttemptsForUser = (quizId, userId) => {
+    return database.quizAttempts.filter(qa => qa.quizId === quizId && qa.uid === userId)
+}
+
 export default {
     getQuizSummariesForCourse,
     getQuizById,
@@ -53,5 +61,7 @@ export default {
     updateQuestion,
     updateQuestionsOfQuiz,
     createQuizAttempt,
-    getQuizAttemptById
+    getQuizAttemptById,
+    deleteQuizAttemptById,
+    getQuizAttemptsForUser
 }
