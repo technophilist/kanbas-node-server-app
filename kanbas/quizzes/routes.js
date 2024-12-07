@@ -21,7 +21,7 @@ function QuizzesRoutes(app) {
     app.get("/api/quizzes/:quizId", (req, res) => {
         const { quizId } = req.params
         const quiz = quizzesDao.getQuizById(quizId)
-        res.json(quiz)
+        res.json({quiz:quiz})
     })
 
     // get all questions for a quiz
