@@ -20,7 +20,7 @@ const deleteQuiz = (quizId) => {
 }
 
 const updateQuiz = (updatedQuiz) => {
-    database.quizzes = database.quizzes.map(q => q.id === updatedQuiz.id ? updatedQuiz : q)
+    database.quizzes = database.quizzes.map(q => q.id === updatedQuiz.id ? {...q, ...updatedQuiz} : q)
 }
 
 const getQuestionsForQuiz = (quizId) => {
