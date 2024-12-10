@@ -15,6 +15,7 @@ import AssignmentRoutes from "./kanbas/assignments/routes.js";
 import EnrollmentsRoutes from "./kanbas/enrollments/routes.js";
 import QuizzesRoutes from "./kanbas/quizzes/routes.js";
 const app = express()
+app.set('trust proxy', true)
 app.use(cors({
     credentials: true,
     origin: process.env.NETLIFY_URL || "http://localhost:3000"
