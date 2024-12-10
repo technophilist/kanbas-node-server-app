@@ -15,6 +15,7 @@ import AssignmentRoutes from "./kanbas/assignments/routes.js";
 import EnrollmentsRoutes from "./kanbas/enrollments/routes.js";
 import mongoose from "mongoose";
 
+
 const CONNECTION_STRING = process.env.MONGO_CONNECTION_STRING || "mongodb://127.0.0.1:27017/kanbas"
 mongoose.connect(CONNECTION_STRING)
 
@@ -28,7 +29,7 @@ const sessionOptions = {
     secret: process.env.SESSION_SECRET || "kanbas", resave: false, // don't write to session store if cookie is unchanged
     saveUninitialized: false // new empty session object is created for each user, but not saved if not modified
 }
-
+app.set('trust proxy', true)
 if (process.env.NODE_ENV !== "development") {
     sessionOptions.proxy = true
     sessionOptions.cookie = {
