@@ -1,10 +1,4 @@
 import express from "express"
-import hello from "./hello.js"
-import Lab5 from "./lab5/index.js";
-import PathParameters from "./lab5/pathparameters.js";
-import QueryParameters from "./lab5/queryparameters.js";
-import WorkingWithObjects from "./lab5/workingWithObjects.js";
-import WorkingWithArrays from "./lab5/workingWithArrays.js";
 import cors from "cors"
 import UserRoutes from "./kanbas/users/routes.js";
 import session from "express-session"
@@ -37,14 +31,6 @@ if (process.env.NODE_ENV !== "development") {
 
 app.use(session(sessionOptions))
 app.use(express.json())
-
-// A5 lab
-Lab5(app)
-hello(app)
-PathParameters(app)
-QueryParameters(app)
-WorkingWithObjects(app)
-WorkingWithArrays(app)
 
 // Kanbas
 UserRoutes(app)
