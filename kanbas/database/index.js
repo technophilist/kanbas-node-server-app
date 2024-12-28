@@ -3,11 +3,14 @@ import modules from "./modules.js"
 import assignments from "./assignments.js"
 import users from "./users.js"
 import enrollments from "./enrollments.js"
-
+import quizzes from "./quizzes.js"
+import quizAttempts from "./quiz-attempts.js"
 export default {
     courses,
     modules,
     assignments,
     users,
-    enrollments
+    enrollments,
+    quizzes,
+    quizAttempts
 }

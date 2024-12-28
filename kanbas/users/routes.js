@@ -39,13 +39,27 @@ function UserRoutes(app) {
         res.json(currentUser)
     }
     const signup = (req, res) => {
-        const {username, password} = req.body
-        const user = dao.findUserByUsername(username)
+        // check if all required properties exists
+        if (
+            !req.body ||
+            !req.body.username ||
+            !req.body.password ||
+            !req.body.firstName ||
+            !req.body.lastName ||
+            !req.body.dob ||
+            !req.body.email ||
+            !req.body.role
+        ) {
+            req.status(400).json({message: "Missing required fields"})
+            return
+        }
+
+        const user = dao.findUserByUsername(req.body.username)
         if (user) {
             res.status(400).json({message: "Username already in use"})
             return
         }
-        const currentUser = dao.createUser({username, password})
+        const currentUser = dao.createUser(req.body)
         req.session["currentUser"] = currentUser
         res.json(currentUser)
     }

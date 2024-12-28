@@ -2,7 +2,7 @@ import db from "../database/index.js"
 
 let {users} = db
 const createUser = (user) => {
-    const newUser = {...user, _id: Date.now()}
+    const newUser = {...user, _id: Date.now().toString()}
     users = [...users, newUser]
     return newUser
 }
